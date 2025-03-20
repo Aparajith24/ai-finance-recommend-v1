@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from test import rf_trust, gb_outcome, clustering_features, kmeans, scaler, X
+from main import rf_trust, gb_outcome, clustering_features, kmeans, scaler, X
 
 def predict_trust_and_recommendations(user_data):
 
