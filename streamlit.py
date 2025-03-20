@@ -224,12 +224,25 @@ if st.button("Get Personalized Recommendations"):
     st.subheader("Your Personalized Financial Analysis")
     st.markdown(f"**Trust Score:** {prediction_result['predicted_trust']}")
     st.markdown(f"**Predicted Financial Outcome:** {prediction_result['predicted_financial_outcome']}")
-    st.markdown(f"**Your Investor Profile:** User Segment {prediction_result['user_segment']}")
-    
+    segment_names = {
+    1: "Confident Optimizers",  
+    2: "Skeptical Cautious",    
+    3: "Moderate Evaluators",   
+    4: "Practical Skeptics"     
+}
+    st.markdown(f"**Your Investor Profile:** User Segment {prediction_result['user_segment']} ({segment_names[prediction_result['user_segment']]})")
+    st.subheader("What This Means for You")
+    st.markdown('''Confident Optimizers (Highest Trust, Best Outcome)
+    You actively trust AI-assisted financial tools and leverage them for decision-making. Your financial outcomes tend to be better because of this high engagement.''')
+    st.markdown('''Skeptical Pragmatists (Lowest Trust, Cautious Approach)
+    You remain skeptical about AI-driven financial insights but still use them cautiously. You might validate recommendations through external sources before taking action.''')
+    st.markdown('''Cautious Adopters (Moderate Trust, Careful Users)
+    You see value in AI-assisted finance but prefer a careful approach. You may need more transparency or proof before fully trusting the system.''')
+    st.markdown('''Neutral Observers (Balanced Trust, Passive Users)
+    You neither fully trust nor distrust AI tools. You engage passively, possibly experimenting but not relying heavily on AI-driven insights.''')
     st.subheader("Recommended Strategy")
     st.markdown(f"**{prediction_result['recommended_strategy']}**")
     st.markdown(f"**Transparency Approach:** {prediction_result['transparency_approach']}")
-
     st.subheader("Investment Recommendations for Indian Market")
     for investment in prediction_result['investment_recommendations']:
         st.markdown(f"• {investment}")
